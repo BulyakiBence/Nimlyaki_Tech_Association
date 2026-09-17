@@ -1,0 +1,394 @@
+/* =========================================================
+   Nimlyaki Tech Association – közös stíluslap
+   Mindkét oldal (index.html, rolunk.html) ezt használja.
+   ========================================================= */
+
+/* --- Színek és alapértékek egy helyen --- */
+:root {
+  --tinta: #12233a;         /* sötétkék: fejléc, lábléc, szövegek */
+  --tinta-halvany: #4b5b70; /* másodlagos szöveg */
+  --papir: #ffffff;         /* oldal háttere */
+  --hatter: #eef1f4;        /* szekciók halvány háttere */
+  --kiemeles: #d98324;      /* borostyán: linkek, hangsúlyok */
+  --vonal: #d4dae1;         /* keretek, elválasztók */
+
+  --szeles: 68rem;          /* tartalom maximális szélessége */
+}
+
+/* --- Alapok --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--tinta);
+  background-color: var(--papir);
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.15rem; }
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch; /* a sorok ne legyenek túl hosszúak */
+}
+
+a {
+  color: var(--kiemeles);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Billentyűzetes navigációhoz látható fókusz */
+a:focus-visible {
+  outline: 3px solid var(--kiemeles);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   FEJLÉC
+   ========================================================= */
+.fejlec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--vonal);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.logo-jel {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: var(--papir);
+  background-color: var(--tinta);
+  padding: 0.35rem 0.55rem;
+  letter-spacing: 0.04em;
+}
+
+.logo-nev {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+}
+
+/* Menüsáv */
+.menu ul {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: var(--tinta);
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: var(--vonal);
+}
+
+/* Az aktuális oldal menüpontja */
+.menu a[aria-current="page"] {
+  border-bottom-color: var(--kiemeles);
+}
+
+/* =========================================================
+   FŐOLDAL – bemutatkozó rész
+   ========================================================= */
+main {
+  display: block;
+}
+
+.hero {
+  max-width: var(--szeles);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+
+.hero-felutes {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--tinta-halvany);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  letter-spacing: -0.02em;
+}
+
+.hero-leiras {
+  font-size: 1.15rem;
+  color: var(--tinta-halvany);
+  margin-top: 1.5rem;
+}
+
+.hero-gombok {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  max-width: none;
+}
+
+.gomb {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--tinta);
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.gomb:hover {
+  background-color: var(--hatter);
+}
+
+.gomb-elsodleges {
+  background-color: var(--tinta);
+  color: var(--papir);
+}
+
+.gomb-elsodleges:hover {
+  background-color: #1d3856;
+}
+
+/* =========================================================
+   SZOLGÁLTATÁSOK ÉS CSAPAT – közös rácsszerkezet
+   ========================================================= */
+.szolgaltatasok,
+.folyamat,
+.oldalcim,
+.adatok,
+.elerhetoseg,
+.csapat {
+  max-width: var(--szeles);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.szolgaltatasok {
+  background-color: var(--hatter);
+  max-width: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* A háttérszínes szekció tartalma is középre igazodjon */
+.szolgaltatasok > * {
+  max-width: var(--szeles);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.racs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+}
+
+.kartya {
+  background-color: var(--papir);
+  border: 1px solid var(--vonal);
+  padding: 1.5rem;
+}
+
+.kartya h3 {
+  margin-bottom: 0.4rem;
+}
+
+.kartya p {
+  margin-bottom: 0;
+  color: var(--tinta-halvany);
+}
+
+/* =========================================================
+   MUNKAFOLYAMAT – ez tényleg sorrend, ezért számozott lista
+   ========================================================= */
+.lepesek {
+  list-style: none;
+  counter-reset: lepes;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.lepesek li {
+  counter-increment: lepes;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  border-top: 1px solid var(--vonal);
+  padding-top: 1.25rem;
+}
+
+.lepesek li::before {
+  content: counter(lepes);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--kiemeles);
+}
+
+.lepesek h3 {
+  margin-bottom: 0.2rem;
+}
+
+.lepesek p {
+  margin-bottom: 0;
+  color: var(--tinta-halvany);
+}
+
+/* =========================================================
+   RÓLUNK OLDAL
+   ========================================================= */
+.oldalcim {
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+.oldalcim p {
+  font-size: 1.15rem;
+  color: var(--tinta-halvany);
+}
+
+/* Cégadatok listája */
+.adatlista {
+  margin: 0;
+  border-top: 1px solid var(--vonal);
+}
+
+.adatsor {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--vonal);
+}
+
+.adatsor dt {
+  font-weight: 500;
+  color: var(--tinta-halvany);
+}
+
+.adatsor dd {
+  margin: 0;
+}
+
+/* Elérhetőség */
+.cim {
+  font-style: normal;
+}
+
+.cim p {
+  margin-bottom: 0.4rem;
+}
+
+/* Csapattagok */
+.tag {
+  border: 1px solid var(--vonal);
+  padding: 1.5rem;
+}
+
+.tag-monogram {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--papir);
+  background-color: var(--tinta);
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+}
+
+.tag h3 {
+  margin-bottom: 0.15rem;
+}
+
+.tag-szerep {
+  color: var(--kiemeles);
+  margin-bottom: 0.8rem;
+}
+
+.tag p:last-child {
+  margin-bottom: 0;
+  color: var(--tinta-halvany);
+}
+
+/* =========================================================
+   LÁBLÉC
+   ========================================================= */
+.lablec {
+  background-color: var(--tinta);
+  color: var(--hatter);
+  padding: 2.5rem 1.5rem;
+  margin-top: 3rem;
+}
+
+.lablec p {
+  max-width: var(--szeles);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.4rem;
+}
+
+.lablec-nev {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.lablec a {
+  color: var(--hatter);
+}
+
+.lablec-kicsi {
+  font-size: 0.9rem;
+  color: #9fb0c4;
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   MOBIL NÉZET
+   ========================================================= */
+@media (max-width: 40rem) {
+  .logo-nev {
+    display: none; /* kis kijelzőn csak a monogram fér ki */
+  }
+
+  .adatsor {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+}
